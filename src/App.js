@@ -3,8 +3,8 @@ import {useState,useEffect, useRef} from 'react';
 
 function App() {
   const [newspapers, setNewspapers] = useState([]);
-   const nameRef= useRef()
-   const linkRef = useRef()
+   const nameRef= useRef();
+   const linkRef = useRef();
 
   useEffect(() => {
     fetch('http://localhost:5000/')
@@ -18,7 +18,7 @@ function App() {
     const name = nameRef.current.value;
     const link = linkRef.current.value;
     const newAdd = {name:name,link:link}
-    console.log(link);
+    console.log(name,link);
 
     fetch('http://localhost:5000/',{
       method: 'POST',
@@ -47,16 +47,16 @@ linkRef.current.value='';
 
   return (
     <div className="App">
-     <h1>Hello</h1>
-     <h3>{newspapers.length}</h3>
+     <h1>Media List</h1>
+     {/* <h3>{newspapers.length}</h3> */}
      {
-       newspapers.map(newspaper=> <li>{newspaper.id}.{newspaper.name}{newspaper.address}</li>)
+       newspapers.map(newspaper=> <li>{newspaper.id}.{newspaper.name}--{newspaper.link}</li>)
      }
 
-     <form onSubmit={handleAddLink}>
+     <form onSubmit={handleAddLink} style={{marginTop:70}}>
        <input type='text' ref={nameRef} placeholder='Write here new media name'></input>
        <br></br>
-       <input type='text'ref={linkRef} placeholder='link name'></input>
+       <input type='text' ref={linkRef} placeholder='link name'></input>
        <br></br>
        <input type='submit'></input>
      </form>
