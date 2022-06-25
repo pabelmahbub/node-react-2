@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# NODE AND REACT APP:DEPLOYED IN ::: https://node-react-get-post.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
